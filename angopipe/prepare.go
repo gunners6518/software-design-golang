@@ -8,7 +8,10 @@ import (
 	"os"
 )
 
+// 標準入力からの値を暗号化する
+
 func Prepare() (cipher.AEAD, error) {
+	// 環境変数から暗号の鍵を取得
 	rawKey := os.Getenv("ANGO_KEY")
 	if rawKey == "" {
 		return nil, errors.New("Environment Variable 'ANGO_KEY' is empty")
